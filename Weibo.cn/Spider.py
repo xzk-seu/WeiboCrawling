@@ -110,20 +110,20 @@ class WeiboSpider(object):
         pattern_comment = re.compile(r"class=\"cc\">\u8BC4\u8BBA\[(\d+)\]")
 
         #屏蔽词
-        # pattern_ban = re.compile(r'''(magazine)|
-        #                             (Bazaar)|
-        #                             (\u6742\u5fd7)|  # 杂志
-        #                             (\u6708\u520a)|  # 月刊
-        #                             (\u6613\u70ca\u5343\u73ba)| # 易烊千玺
-        #                             (\u5199\u771f)| # 写真
-        #                             (\u738b\u6e90)| # 王源
-        #                             (\u5434\u4ea6\u51e1)| #吴亦凡
-        #                             (\u520a\u7269)| # 刊物
-        #                             (\u82ad\u838e)| # 芭莎
-        #                             (\u5c01\u9762) # 封面
-        #                             ''', re.VERBOSE | re.IGNORECASE | re.DOTALL)
+        pattern_ban = re.compile(r'''(magazine)|
+                                    (Bazaar)|
+                                    (\u6742\u5fd7)|  # 杂志
+                                    (\u6708\u520a)|  # 月刊
+                                    (\u6613\u70ca\u5343\u73ba)| # 易烊千玺
+                                    (\u5199\u771f)| # 写真
+                                    (\u738b\u6e90)| # 王源
+                                    (\u5434\u4ea6\u51e1)| #吴亦凡
+                                    (\u520a\u7269)| # 刊物
+                                    (\u82ad\u838e)| # 芭莎
+                                    (\u5c01\u9762) # 封面
+                                    ''', re.VERBOSE | re.IGNORECASE | re.DOTALL)
 
-        pattern_ban = re.compile(r'''12312312312312312312''', re.VERBOSE)
+#         pattern_ban = re.compile(r'''12312312312312312312''', re.VERBOSE)
 
         for page in self.__list_raw_page:
             soup = bs4.BeautifulSoup(page, "lxml")
@@ -152,9 +152,9 @@ class WeiboSpider(object):
                     sheet["A" + str(this_post)] = item.getText()
                     sheet["B" + str(this_post)] = tag_ctt[index].getText()[1:]
                     sheet["C" + str(this_post)] = tag_ct[index].getText()
-                    sheet["D" + str(this_post)] = list_n_good[index]
-                    sheet["E" + str(this_post)] = list_n_repost[index]
-                    sheet["F" + str(this_post)] = list_n_comment[index]
+                    sheet["D" + str(this_post)] = int(list_n_good[index])
+                    sheet["E" + str(this_post)] = int(list_n_repost[index])
+                    sheet["F" + str(this_post)] = int(list_n_comment[index])
                     this_post += 1
                     index += 1
 
