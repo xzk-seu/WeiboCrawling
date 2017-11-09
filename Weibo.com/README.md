@@ -2,7 +2,7 @@
 <h3>更新于 <em>11/9/2017</em></h3>
     <p><strong>几点说明</strong></p>
     <ul>
-    <li><p>要爬取微博搜索，首先先登录。<em>（传入cookie）</em>本次的爬取利用了多个账号，所以需要传入一个<em>cookie</em>列表。</p></li>
+    <li>要爬取微博搜索，首先先登录。<em>（传入cookie）</em>本次的爬取利用了多个账号，所以需要传入一个<em>cookie</em>列表。</li>
     <li>微博搜索页面的数据在页面源代码中，但不是在<em>HTML</em>标签中，而是在最下方的<em>script</em>标签中，
     需要先利用正则表达式提取标签内的<em>json</em>内容，再通过<em>python</em>进行处理。</li>
     <li>本项目的<strong>缺点</strong>也很明显：
