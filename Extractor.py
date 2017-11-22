@@ -63,6 +63,7 @@ class Extractor:
 
             if MyTime.interval(weibo_time=webo_time) <= self.__interval:
                 self.__posts.append((nick_name, webo_content, webo_time, num_forward, num_comment, num_like))
+                # print(nick_name, webo_content)
             elif MyTime.interval(weibo_time=webo_time) > self.__interval + 1:
                 self.__is_too_old = True
         return self.__posts

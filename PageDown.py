@@ -7,7 +7,8 @@ import _CODE
 from res.URLs import urls_model
 from util.MyRequest import MyRequest
 
-logging.basicConfig(level=logging.DEBUG, filename=os.path.join(os.getcwd(), 'logs', 'PageDown'),
+
+logging.basicConfig(level=logging.DEBUG, filename=os.path.join(os.getcwd(), 'logs', 'PageDown.txt'),
                     format=' %(asctime)s - %(levelname)s - %(message)s')
 logging.debug('Start of program.')
 
@@ -17,7 +18,7 @@ Down模块：
     1. 提取主页面
 
         
-    2. 提取动态页   
+    2. 提取动态页    
         
 """
 
@@ -67,8 +68,8 @@ class PageDown:
         content = self.__request.content(urls_model['JS'].format(page=i, pre_page=i, pagebar=j,
                                                                  current_page=(i * 3 - 2 + j),
                                                                  code_location=code_item[1]))
-        if content is None:
-            return _CODE.NONE_CODE
+        # if 'html' not in json.loads(content).keys():
+        #     return _CODE.NONE_CODE
         html = json.loads(content)['data']
         length = len(html)
 
@@ -85,6 +86,4 @@ class PageDown:
         return html
 
 
-if __name__ == '__main__':
-    p = PageDown()
-    p.attack_page_bar(('六和春酒楼', '100101B2094656D56EA7FC499D'), 1, 0)
+

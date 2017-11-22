@@ -18,10 +18,11 @@ class Spider:
     def start(self):
         code = LocationCode()
         self.__code_location = code.code()
+        # print(self.__code_location)
 
         down = PageDown()
         extractor = Extractor(interval=self.__interval)
-        for item in self.__code_location:
+        for item in self.__code_location.items():
             for index in range(1, 24):
                 html = down.attack_home_page(code_item=item, index=index)
                 if html is _CODE.ERROR_CODE:
@@ -33,7 +34,7 @@ class Spider:
                 if extractor.is_too_old():
                     break
 
-            for i in range(1,24):
+            for i in range(1, 24):
                 for j in range(0, 2):
                     html = down.attack_page_bar(code_item=item, i=i, j=j)
                     if html is _CODE.ERROR_CODE:

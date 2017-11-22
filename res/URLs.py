@@ -8,7 +8,7 @@ urls_model = {
                    'current_page={current_page}&since_id=&page={page}&pagebar={pagebar}&tab=relateweibo&'
                    'pl_name=Pl_Core_MixedFeed__35&id={code_location}&'
                    'script_uri=/p/{code_location}/relateweibo&'
-                   'feed_type=1&pre_page={pre_page}&domain_op=100101'),
+                   'feed_type=1&pre_page={pre_page}&domain_op=100101&display=0'),
             'Nearby': ('https://weibo.com/p/1001018008641018500000000/nearby?'
                        'cfs=600&Pl_Core_Pt6Rank__39_filter=&Pl_Core_Pt6Rank__39_page={page}#Pl_Core_Pt6Rank__39'),
         }
