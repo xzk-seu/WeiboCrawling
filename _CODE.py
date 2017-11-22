@@ -1,0 +1,4 @@
+"""CODE"""
+
+ERROR_CODE = 0
+NONE_CODE = 1
