@@ -10,7 +10,7 @@ from util.MyRequest import MyRequest
 
 logging.basicConfig(level=logging.DEBUG, filename=os.path.join(os.getcwd(), 'logs', 'PageDown.txt'),
                     format=' %(asctime)s - %(levelname)s - %(message)s')
-logging.debug('Start of program.')
+logging.debug('Start of program: Class PageDown.')
 
 """ 
 Down模块：
@@ -37,17 +37,21 @@ class PageDown:
 
         # 用于提取源代码中script标签下的JSON信息所用的正则表达式
         pattern = re.compile(
-            "FM\.view\(({\"ns\":\"pl\.content\.homeFeed\.index\",\"domid\":\"Pl_Core_MixedFeed__35\",.*)\)</script>")
+            "FM\.view\(({\"ns\":\"pl\.content\.homeFeed\.index\",\"domid\":\"Pl_Third_App__17\",.*)\)</script>")
 
         content = self.__request.content(urls_model['Home'].format(code_location=code_item[1], page=index))
+        # print(content)
+        # print(urls_model['Home'].format(code_location=code_item[1], page=index))
         mo = pattern.search(content)
 
         if mo is not None:
             js_text = mo.group(1)
         else:
+            logging.debug(code_item[0] + 'Home_' + str(index) + '抽取JS源码失败。')
             return _CODE.NONE_CODE
 
         if 'html' not in json.loads(js_text).keys():
+            logging.debug(code_item[0] + 'Home_' + str(index) + '转换JS信息失败。')
             return _CODE.NONE_CODE
         html = json.loads(js_text)['html']
 

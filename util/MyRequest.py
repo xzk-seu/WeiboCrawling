@@ -25,8 +25,8 @@ class MyRequest(object):
         r = requests.get(url=url, headers=self.__headers)
         r.encoding = 'utf-8'
         self.__refresh_headers()
-        # time.sleep(random.choice(range(3, 7, 2)))
-        time.sleep(random.choice(range(9, 15, 3)))
+        time.sleep(random.choice(range(3, 7, 2)))
+        # time.sleep(random.choice(range(9, 15, 3)))
         return r.text
 
     def content(self, url):

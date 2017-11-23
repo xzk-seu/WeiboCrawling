@@ -4,7 +4,7 @@ import openpyxl
 
 class MyWorksheet:
     def __init__(self):
-        self.__path_worksheet = os.path.join(os.getcwd(), 'RESULT', 'sheet.xlsx')
+        self.__path_worksheet = os.path.join(os.getcwd(), 'RESULTS', 'sheet.xlsx')
 
     def save_worksheet(self, posts):
         # 如果没有工作表，则创建

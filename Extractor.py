@@ -21,8 +21,14 @@ class Extractor:
         else:
             return int(str_num)
 
+    # 判断时间是否过长
     def is_too_old(self):
-        return self.__is_too_old
+        if self.__is_too_old is True:
+            self.__is_too_old = False
+            # print('too old!')
+            return True
+        else:
+            return False
 
     # 返回元祖构成的列表，每个元祖为一条微博。
     # 加上时间控制。

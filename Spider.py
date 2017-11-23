@@ -43,8 +43,10 @@ class Spider:
                         continue
                     else:
                         self.__posts += extractor.extractor(html)
-                    if extractor.is_too_old():
-                        break
+                if extractor.is_too_old():
+                    break
+
+        self.__posts = list(set(self.__posts))
 
         db = MyDataBase()
         db.start()
